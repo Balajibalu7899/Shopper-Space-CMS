@@ -1,0 +1,13 @@
+.card {
+  .icon {
+    background-color: var(--primary-txt);
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    margin: 20px 10px 0 10px;
+
+    img {
+      margin: 5px;
+    }
+  }
+}

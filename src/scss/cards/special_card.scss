@@ -1,0 +1,9 @@
+.special-card {
+  flex-direction: row !important;
+  .header {
+    .img {
+      height: 100px;
+      width: 100px;
+    }
+  }
+}

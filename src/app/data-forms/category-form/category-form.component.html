@@ -1,0 +1,44 @@
+<div class="grid-2">
+  <div class="display-container">
+    <div class="card">
+      <div class="head"> <img [src]="category.banner_image" alt="Image Not Select" height="200">
+      </div>
+    </div>
+    <br>
+    <div class="split">
+      <div class="card category-card" style="width: 250px !important;">
+        <img [src]="category.image" alt="Image Not Select" height="150" width="250">
+        <div class="body">
+          <p class="title type-title">{{category.name}}</p>
+          <p class="title type-title">{{category.sub_text}}</p>
+        </div>
+      </div>
+      <div class="spacer"></div>
+    </div>
+  </div>
+  <div class="edit-container">
+    <h3 style="margin-left: 100px;">Banner Image</h3>
+    <label for="image" class="input-field">
+      <input id="image" type="file" class="input" accept="image/*" placeholder="Banner"
+        (change)="bannderUpload($event.target)">
+    </label>
+    <br>
+    <br>
+    <br>
+    <h3 style="margin-left: 100px;">Image</h3>
+    <label for="image" class="input-field">
+      <input id="image" type="file" class="input" accept="image/*" (change)="imageUpload($event.target)">
+    </label>
+    <label for="name" class="input-field">
+      <input [(ngModel)]="category.name" required type="text" class="input" id="name" placeholder="Enter Name">
+      <span class="label">Name</span>
+    </label>
+    <label for="sub-text" class="input-field">
+      <input [(ngModel)]="category.sub_text" required type="text" class="input" id="sub-text"
+        placeholder="Enter Sub Text">
+      <span class="label">Sub Text</span>
+    </label>
+    <button class="btn" *ngIf="action === Action.CREATE" (click)="create()">Create</button>
+    <button class="btn" *ngIf="action === Action.EDIT" (click)="update()">Update</button>
+  </div>
+</div>

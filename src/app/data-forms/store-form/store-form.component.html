@@ -1,0 +1,55 @@
+<div class="grid-2">
+  <div class="display-container">
+    <div class="card">
+      <div class="head">
+          <img class="img" height="200" [src]="store.store_image" alt="" srcset="">
+      </div>
+      <div class="body">
+          <h2 class="title">{{store.name}}</h2>
+          <h2 class="description">{{store.type}}</h2>
+          <h3 class="sub-title">{{store.open}}</h3>
+      </div>
+      <hr>
+      <div class="footer">
+          <p class="description">{{store.address}}</p>
+      </div>
+  </div>
+  </div>
+  <div class="edit-container">
+    <label for="image" class="input-field">
+      <input id="image" type="file" class="input">
+    </label>
+    <label for="name" class="input-field">
+      <input [(ngModel)]="store.name" required type="text" class="input" id="name" placeholder="Enter name">
+      <span class="label">name</span>
+    </label>
+    <label for="type" class="input-field">
+      <input [(ngModel)]="store.type" required type="text" class="input" id="type">
+      <span class="label">Sub Type</span>
+    </label>
+    <label for="phone" class="input-field">
+      <input [(ngModel)]="store.phone_number" required type="number" class="input" id="phone">
+      <span class="label">Phone Number</span>
+    </label>
+    <label for="gst_number" class="input-field">
+      <input [(ngModel)]="store.gst_number" required type="number" class="input" id="gst_number">
+      <span class="label">GST Number</span>
+    </label>
+    <label for="address" class="input-field">
+      <input [(ngModel)]="store.address" required type="text" class="input" id="address">
+      <span class="label">Address</span>
+    </label>
+    <div class="split">
+      <label for="latitude" class="input-field">
+        <input [(ngModel)]="store.location.latitude" required type="number" class="input" id="latitude">
+        <span class="label">Latitude</span>
+      </label>
+      <label for="longitude" class="input-field">
+        <input [(ngModel)]="store.location.longitude" required type="number" class="input" id="longitude">
+        <span class="label">Longitude</span>
+      </label>
+    </div>
+    <button class="btn align-right" *ngIf="action == 'new'" (click)="create()">Create</button>
+    <button class="btn align-right" *ngIf="action == 'edit'" (click)="update()">Update</button>
+  </div>
+</div>

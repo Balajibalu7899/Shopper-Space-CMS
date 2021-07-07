@@ -1,0 +1,15 @@
+<div class="flow-h">
+  <div style="flex: 1;">
+  </div>
+  <button [routerLink]="['/offer/new']" routerLinkActive="router-link-active" class="btn btn-active">Add Offer</button>
+</div>
+<div class="grid-2 outlets">
+  <div class="card offer-card" *ngFor="let offer of offers" (click)="edit(offer.id!)">
+    <img class="img" [src]="offer.image" alt="offer.title">
+    <div class="body">
+      <h4 class="title">{{offer.title}}</h4>
+      <p class="sub-title">{{offer.sub_title}}</p>
+      <p class="description">{{offer.description}}</p>
+    </div>
+  </div>
+</div>

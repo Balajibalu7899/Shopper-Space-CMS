@@ -1,0 +1,70 @@
+
+[size="mini"]{
+  grid-template-columns: 70px 1fr !important;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 284px 1fr;
+  grid-template-areas: "side-menu" "container";
+
+  .container {
+    height: 100vh;
+    overflow-y: scroll;
+    box-sizing: border-box;
+  }
+
+  .display-container{
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  .edit-container{
+    height: 100vh;
+    overflow-y: scroll;
+  }
+}
+
+.fit{
+  width: calc(100vw/2.5);
+}
+
+.grid-h {
+  overflow-x: auto;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(350px,1fr);
+  grid-template-columns: repeat(auto-fill,minmax(350px,1fr)) !important;
+}
+
+//  grid of 4 cards
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 10px;
+  grid-gap: 10px;
+  font-weight: bold;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 10px;
+  grid-gap: 10px;
+  font-weight: bold;
+}
+
+.grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 10px;
+  grid-gap: 10px;
+  font-weight: bold;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 10px;
+  grid-gap: 10px;
+  font-weight: bold;
+}

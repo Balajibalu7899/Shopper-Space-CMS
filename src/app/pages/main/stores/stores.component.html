@@ -1,0 +1,16 @@
+<div class="grid-3">
+    <div class="card" *ngFor="let store of stores" (click)="storeDetails(store.store_id)">
+        <div class="head">
+            <img class="img" height="200" [src]="store.store_image" alt="" srcset="">
+        </div>
+        <div class="body">
+            <h2 class="title">{{store.name}}</h2>
+            <h2 class="description">{{store.type}}</h2>
+            <h3 class="sub-title">{{store.open}}</h3>
+        </div>
+        <hr>
+        <div class="footer">
+            <p class="description">{{store.address}}</p>
+        </div>
+    </div>
+</div>

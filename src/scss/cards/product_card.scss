@@ -1,0 +1,35 @@
+.type {
+  overflow-x: scroll;
+}
+
+.category-card {
+  padding: 10px;
+  img {
+    height: 200px;
+    border-radius: 5px;
+  }
+
+  .type-title {
+    margin: 10px;
+    text-align: center;
+  }
+}
+
+.item-card {
+  .body {
+
+    text-align: start;
+  }
+
+  .badge{
+    position: absolute;
+    right: 0px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+
+    p{
+      color: var(--white-txt);
+    }
+  }
+}

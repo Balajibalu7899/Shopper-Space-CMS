@@ -1,0 +1,47 @@
+<div class="grid-2">
+  <div></div>
+  <div class="edit-container">
+    <label for="image" class="input-field">
+      <input type="file" class="input" id="image">
+      <span class="label"></span>
+    </label>
+    <label for="code" class="input-field">
+      <input required [(ngModel)]="coupon.code" required type="text" class="input" id="code" placeholder="Enter Coupon Code">
+      <span class="label">Code</span>
+    </label>
+    <label for="title" class="input-field">
+      <input required [(ngModel)]="coupon.title" required type="text" class="input" id="title" placeholder="Enter Title">
+      <span class="label">Title</span>
+    </label>
+    <label for="sub-title" class="input-field">
+      <input required [(ngModel)]="coupon.sub_title" required type="text" class="input" id="sub-title"
+        placeholder="Enter Sub Title">
+      <span class="label">Sub Title</span>
+    </label>
+    <label for="description" class="input-field">
+      <textarea required [(ngModel)]="coupon.description" required type="text" class="input area" id="description"
+        placeholder="Enter Description"></textarea>
+      <span class="label">Description</span>
+    </label>
+    <div class="split">
+      <label for="type" class="input-field">
+        <input required [(ngModel)]="coupon.type" required type="text" class="input" id="type"
+          placeholder="Enter Type amount | %">
+        <span class="label">Coupon Type</span>
+      </label>
+      <label for="amount" class="input-field">
+        <input required [(ngModel)]="coupon.amount" required type="number" class="input" id="amount" placeholder="Enter amount">
+        <span class="label">Coupon amount</span>
+      </label>
+    </div>
+    <label for="mini-order" class="input-field">
+      <input required [(ngModel)]="coupon.minimum_order" required type="number" class="input" id="mini-order" placeholder="Enter Minimum Order Amount">
+      <span class="label">Minimum Order</span>
+    </label>
+    <label for="expiry" class="input-field">
+      <input required [(ngModel)]="coupon.minimum_order" required type="datetime-local" class="input" id="expiry" placeholder="Enter Expiry Date">
+      <span class="label">Expiry Date</span>
+    </label>
+    <button class="btn" (click)="create()">Create</button>
+  </div>
+</div>

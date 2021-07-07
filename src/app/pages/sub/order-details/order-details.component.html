@@ -1,0 +1,110 @@
+<div class="grid-2">
+  <div class="display-container" *ngIf="order">
+    <div class="grid-1">
+      <div class="card order-card">
+        <div class="body">
+          <h2 class="title">Customer</h2>
+          <h3 class="sub-title">Name: {{order.address.name}}</h3>
+          <h3 class="sub-title">Phone: {{order.address.phone}}</h3>
+          <p class="description">Address: {{order.address.address}}</p>
+        </div>
+      </div>
+      <div class="card order-status-card">
+        <div class="body body-h active">
+          <div class="lead">
+            <div class="line"></div>
+            <div class="symbol"></div>
+            <div class="line"></div>
+          </div>
+          <div class="mid">
+            <h2 class="title">
+              Ordered</h2>
+            <h3 class="sub-title">{{order.time}}</h3>
+          </div>
+        </div>
+        <br>
+        <div class="body body-h" [ngClass]="{active: order.status == 'Dispatched'|| order.status == 'Delivered'}">
+          <div class="lead">
+            <div class="line"></div>
+            <div class="symbol"></div>
+            <div class="line"></div>
+          </div>
+          <div class="mid">
+            <h2 class="title">Dispatched</h2>
+            <h3 class="sub-title">{{order.time}}</h3>
+            <br>
+            <button class="btn align-right" *ngIf="order.status == 'Ordered'" (click)="dispatched()">Completed</button>
+          </div>
+        </div>
+        <br>
+        <div class="body body-h" [ngClass]="{active: order.status == 'Delivered'}">
+          <div class="lead">
+            <div class="line"></div>
+            <div class="symbol"></div>
+            <div class="line"></div>
+          </div>
+          <div class="mid">
+            <h2 class="title">Delivered</h2>
+            <h3 class="sub-title">{{order.time}}</h3>
+            <br>
+            <button class="btn align-right" *ngIf="order.status == 'Dispatched'" (click)="deliverd()">Completed</button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="body">
+          <h2 class="title">Payment</h2>
+          <h3 class="title">Id: {{order.payment.id}}</h3>
+          <h3 class="sub-title">Method: {{order.payment.method}}</h3>
+          <h3 class="sub-title">Time: {{order.payment.time}}</h3>
+        </div>
+      </div>
+      <div class="card order-price-card">
+        <div class="body body-h">
+          <h2 class="title">Pricing</h2>
+        </div>
+        <div class="body body-h">
+          <h2 class="sub-title">Items</h2>
+          <div class="spacer"></div>
+          <h2 class="sub-title">{{order.items_count}}</h2>
+        </div>
+        <div class="body body-h">
+          <h2 class="sub-title">MRP</h2>
+          <div class="spacer"></div>
+          <h2 class="sub-title">₹{{order.price}}</h2>
+        </div>
+        <div class="body body-h">
+          <h2 class="sub-title">Discount</h2>
+          <div class="spacer"></div>
+          <h2 class="sub-title">₹{{order.discount}}</h2>
+        </div>
+        <span class="line"></span>
+        <div class="body body-h">
+          <h2 class="title">Total</h2>
+          <div class="spacer"></div>
+          <h2 class="title">₹{{order.total_price}}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="display-container">
+    <div class="grid-1">
+      <div class="card order-product-card" *ngFor="let product of products">
+        <div class="header">
+          <img [src]="product.image" [alt]="product.title" class="img">
+        </div>
+        <div class="body body-h">
+          <div>
+            <h2 class="title">{{product.title}}</h2>
+            <br><br>
+            <h3 class="sub-title">Cut: {{product.cut}}</h3>
+            <h3 class="sub-title">Weight: {{product.weight}}/{{product.unit_type}}</h3>
+          </div>
+          <div>
+            <h2 class="title">₹{{product.price}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

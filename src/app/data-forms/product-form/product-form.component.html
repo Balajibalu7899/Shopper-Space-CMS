@@ -1,0 +1,123 @@
+<div style="font-size: 25px; color: red;" *ngIf="done">Done</div>
+<div class="grid-2">
+  <div class="display-container">
+    <div class="item-card card">
+      <img class="img" [src]="product.image" alt="">
+      <!-- <div class="badge">
+        <p>{{product.badge}}</p>
+      </div> -->
+      <div class="body">
+        <div style="flex: 1;">
+          <p class="title">{{product.name}}</p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="card">
+      <div class="body">
+        <h2 class="title">Description</h2>
+        <h2 class="sub-title">{{product.description}}</h2>
+      </div>
+    </div>
+    <br>
+    <div class="card">
+      <div class="body">
+        <h2 class="title">Price Details</h2>
+      </div>
+      <div class="fit">
+        <div class="grid-1 grid-h">
+          <div class="card special-card" *ngFor="let quantity of product.quantities">
+            <div class="body">
+              <h2 class="title">Price: {{quantity.price}}/{{quantity.base_qty}}{{quantity.unit_type}}</h2>
+              <h2 class="sub-title">Offer Price: {{quantity.offer_price}}/{{quantity.base_qty}}{{quantity.unit_type}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="card" (click)="changeEditType(EditType.CATEGORY)">
+      <div class="split">
+        <h2 class="title">Categories</h2>      </div>
+      <div class="fit">
+        <div class="grid-1 grid-h">
+          <div class="card special-card" *ngFor="let category of product.categories">
+            <div class="head">
+              <img [src]="category.image" alt="" class="img" height="150">
+            </div>
+            <div class="body">
+              <h2 class="title">{{category.name}}</h2>
+              <h2 class="sub-title">{{category.sub_text}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="edit-container">
+    <app-category-selector *ngIf="editType === EditType.CATEGORY" [categories]="product.categories"
+      (update)="editCategory($event)"></app-category-selector>
+    <!-- <app-cut-form *ngIf="editType === EditType.CUT" [product_id]="product_id" [cuts]="product.cuts"
+      (update)="editCut($event)"></app-cut-form>
+    <app-special-form *ngIf="editType === EditType.SPECIAL" [specials]="product.specials"
+      (update)="editSpecial($event)"></app-special-form> -->
+    <div *ngIf="editType === EditType.PRODUCT">
+      <label for="image" class="input-field">
+        <input id="image" type="file" class="input" accept="image/*" (change)="imageUpload($event.target)">
+      </label>
+      <label for="name" class="input-field">
+        <input required [(ngModel)]="product.name" class="input" name="title" type="text" id="name"
+          placeholder="Enter name">
+        <span class="label">Name</span>
+      </label>
+      <label for="type" class="input-field">
+        <input required [(ngModel)]="product.type" class="input" type="text" id="type"
+          placeholder="Enter Type">
+        <span class="label">Type</span>
+      </label>
+      <label for="brand" class="input-field">
+        <input required [(ngModel)]="product.brand" class="input" type="text" id="brand"
+          placeholder="Enter Brand">
+        <span class="label">Brand</span>
+      </label>
+      <label for="description" class="input-field">
+        <textarea required [(ngModel)]="product.description" class="input area" type="text" id="description"
+          placeholder="Enter title"></textarea>
+        <span class="label">Description</span>
+      </label>
+      <!-- <label for="badge" class="input-field">
+        <input required [(ngModel)]="product.badge" class="input" type="text" id="badge" placeholder="Enter title">
+        <span class="label">Badge</span>
+      </label>
+      <label for="tag" class="input-field">
+        <input required [(ngModel)]="product.tag" class="input" type="text" id="tag" placeholder="Enter title">
+        <span class="label">Tag</span>
+      </label> -->
+      <div class="grid-2">
+        <label for="unit_type" class="input-field">
+          <input required [(ngModel)]="quantity.unit_type" class="input" type="text" id="unit_type" placeholder="Enter Unit Type">
+          <span class="label">Unit Type</span>
+        </label>
+        <label for="base_qty" class="input-field">
+          <input required [(ngModel)]="quantity.base_qty" class="input" type="number" id="base_qty"
+            placeholder="Enter Base Quantity">
+          <span class="label">Base Quantity</span>
+        </label>
+      </div>
+      <button class="btn align-right" (click)="addQuantity()">Add</button>
+      <div class="grid-2">
+        <label for="price" class="input-field">
+          <input required [(ngModel)]="quantity.price" class="input" type="number" id="price" placeholder="Enter title">
+          <span class="label">Price</span>
+        </label>
+        <label for="discount" class="input-field">
+          <input required [(ngModel)]="quantity.offer_price" class="input" type="number" id="discount"
+            placeholder="Enter title">
+          <span class="label">Discount Price</span>
+        </label>
+      </div>
+      <button class="btn align-right" (click)="create()" *ngIf="!edit">Create</button>
+      <button class="btn align-right" (click)="update()" *ngIf="edit">Update</button>
+    </div>
+  </div>
+</div>

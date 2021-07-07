@@ -1,0 +1,54 @@
+.dash-card {
+  height: 200px;
+
+  &:active {
+    border: var(--primary-color) solid 4px;
+  }
+
+  .count {
+    flex: 1;
+    margin-top: 50px;
+    font-size: 50px;
+    color: var(--secondary-txt-50);
+    text-align: center;
+  }
+
+  .title {
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+  }
+}
+
+
+
+.orders {
+  overflow-y: scroll;
+  height: calc(100vh - 300px);
+}
+
+.dash-orders {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: 300px 1fr 100px 100px 100px;
+  grid-gap: 10px;
+  height: 35px;
+  padding: 5px 10px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: $card-shadow;
+
+  .title {
+    line-height: 25px;
+    white-space: nowrap;
+    text-overflow: hide;
+    overflow: hidden;
+    font-weight: bold;
+    justify-content: space-between;
+  }
+}
+
+.head {
+  background-color: rgb(199, 199, 199);
+  box-shadow: none;
+}

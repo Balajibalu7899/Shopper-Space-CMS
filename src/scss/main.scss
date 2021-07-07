@@ -1,0 +1,145 @@
+:root {
+  --primary-color: #80ee99;
+  --acent-color: #24d6de;
+  --primary-txt: #010157;
+  --white-txt: #ffffff;
+  --secondary-txt: #5f5e6c;
+  --secondary-txt-50: #b7b7b7;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.align-right {
+  float: right;
+  text-align: right;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.line {
+  height: 2px;
+  background-color: var(--primary-txt);
+}
+
+// Button Design
+.btn {
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: var(--white-txt);
+  border: none;
+  box-shadow: $btn-shadow;
+
+  &:active {
+    color: var(--white-txt);
+    background-color: var(--primary-color);
+  }
+}
+
+.btn-active {
+  color: var(--white-txt);
+  background-color: var(--primary-color);
+}
+
+.flow-h {
+  display: flex;
+}
+
+.split {
+  display: flex;
+  align-items: center;
+
+
+  .title {
+    align-items: center;
+  }
+}
+
+// Input Design
+.input-field {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+
+  .input {
+    flex: 1;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0px 10px;
+    color: var(--secondary-txt);
+    box-shadow: $card-shadow;
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:focus {
+      outline: none;
+      height: 38px;
+      border: solid 2px var(--primary-color);
+
+      ~.label {
+        top: 2px;
+        left: 20px;
+        padding: 0px 10px;
+        background-color: white;
+      }
+    }
+
+    &:focus::placeholder {
+      color: grey !important;
+    }
+
+    &:valid {
+      ~.label {
+        top: 2px;
+        left: 20px;
+        padding: 0px 10px;
+        background-color: white;
+      }
+    }
+  }
+
+  [type="file"] {
+    display: flex;
+    height: 25px;
+    padding: 50px;
+    border: dashed 2px var(--secondary-txt);
+  }
+
+  .area {
+    min-height: 100px;
+    padding: 10px 10px;
+  }
+
+  .label {
+    position: absolute;
+    font-size: 16px;
+    top: 22.5px;
+    left: 20px;
+  }
+
+  .icon-btn {
+    position: relative;
+    width: 40px;
+    margin: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    outline: none;
+    font-size: 20px;
+    border: none;
+    box-shadow: $btn-shadow;
+    color: var(--white-txt);
+    background-color: var(--acent-color);
+  }
+}

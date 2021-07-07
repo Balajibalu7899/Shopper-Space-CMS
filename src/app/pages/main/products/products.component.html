@@ -1,0 +1,40 @@
+<div class="type grid-4">
+  <div class="card category-card" *ngFor="let category of categories">
+    <img [src]="category.image" alt="">
+    <!-- <p class="title type-title">{{category.title}}</p> -->
+  </div>
+</div>
+<div class="split">
+  <div style="flex: 0.2;" class="text-center">
+    <h2>Products</h2>
+  </div>
+  <label for="search" class="input-field" style="flex: 1;">
+    <input class="input" type="text" id="search">
+    <button class="btn icon-btn">O</button>
+  </label>
+  <div>
+    <select name="filter" id="filter">
+      <option value="type">Type</option>
+      <option value="price">Price</option>
+      <option value="discount">Discount</option>
+    </select>
+  </div>
+  <button class="btn active" [routerLink]="['/product/new']" routerLinkActive="router-link-active">Create</button>
+</div>
+
+<div class="type-item grid-3">
+  <div class="item-card card" *ngFor="let product of products" (click)="edit(product.product_id!)">
+    <img class="img" [src]="product.image_url" alt="">
+    <div class="body body-h">
+      <div style="flex: 1;">
+        <p class="title">{{product.name}}</p>
+        <p class="description">{{product.description}}</p>
+        <p class="sub-title">{{product.brand}}</p>
+      </div>
+      <!-- <div>
+        <p class="title">${{product.price}}</p><br>
+        <p class="sub-title">{{((product.price- product.offer_price)/product.offer_price)*100 | number: '1.2-2'}}</p>
+      </div> -->
+    </div>
+  </div>
+</div>

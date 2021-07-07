@@ -1,0 +1,1 @@
+export enum EditType { PRODUCT, CATEGORY, CUT, SPECIAL, OFFER }

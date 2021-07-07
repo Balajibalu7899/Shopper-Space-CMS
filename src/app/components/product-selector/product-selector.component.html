@@ -1,0 +1,43 @@
+<!-- <div class="split">
+  <h2 class="title">New Products</h2>
+</div>
+<div class="fit">
+  <div class="grid-1 grid-h">
+    <div class="item-card card" *ngFor="let product of newProducts">
+      <img class="img" [src]="product.image" alt="">
+      <div class="body body-h">
+        <div style="flex: 1;">
+          <p class="title">{{product.title}}</p>
+          <p class="description">{{product.sub_title}}</p>
+          <p class="sub-title">{{product.tag }}</p>
+        </div>
+        <div>
+          <p class="title">${{product.price}}</p><br>
+          <p class="sub-title">{{((product.price- product.offer_price)/product.offer_price)*100 | number: '1.2-2'}}</p>
+          <h2 class="title" (click)="remove(product)">Remove</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="split">
+  <h2 class="title">All Product</h2>
+  <div style="flex: 1;"></div>
+  <button class="btn" (click)="save()">Save</button>
+</div>
+<div class="grid-1">
+  <div class="item-card card" *ngFor="let product of allProducts" (click)="addProduct(product)">
+    <img class="img" [src]="product.image" alt="">
+    <div class="body body-h">
+      <div style="flex: 1;">
+        <p class="title">{{product.title}}</p>
+        <p class="description">{{product.sub_title}}</p>
+        <p class="sub-title">{{product.tag }}</p>
+      </div>
+      <div>
+        <p class="title">${{product.price}}</p><br>
+        <p class="sub-title">{{((product.price- product.offer_price)/product.offer_price)*100 | number: '1.2-2'}}</p>
+      </div>
+    </div>
+  </div>
+</div> -->

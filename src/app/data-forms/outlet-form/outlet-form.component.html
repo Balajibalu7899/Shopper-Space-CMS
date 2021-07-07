@@ -1,0 +1,39 @@
+<div class="grid-2">
+  <div class="display-container"></div>
+  <div class="edit-container">
+    <label for="image" class="input-field">
+      <input id="image" type="file" class="input">
+    </label>
+    <label for="title" class="input-field">
+      <input [(ngModel)]="outlet.title" required type="text" class="input" id="title" placeholder="Enter Title">
+      <span class="label">Title</span>
+    </label>
+    <label for="sub-title" class="input-field">
+      <input [(ngModel)]="outlet.sub_title" required type="text" class="input" id="sub-title">
+      <span class="label">Sub Title</span>
+    </label>
+    <label for="slug" class="input-field">
+      <input [(ngModel)]="outlet.slug" required type="text" class="input" id="slug">
+      <span class="label">Slug</span>
+    </label>
+    <label for="type" class="input-field">
+      <input required [(ngModel)]="tag" class="input" type="text" id="type" placeholder="Enter title">
+      <span class="label">Type</span>
+      <button class="icon-btn" (click)="addTag()">+</button>
+    </label>
+    <label for="address" class="input-field">
+      <input [(ngModel)]="outlet.address" required type="text" class="input" id="address">
+      <span class="label">Address</span>
+    </label>
+    <div class="split">
+      <label for="latitude" class="input-field">
+        <input [(ngModel)]="outlet.location.latitude" required type="number" class="input" id="latitude">
+        <span class="label">Latitude</span>
+      </label>
+      <label for="longitude" class="input-field">
+        <input [(ngModel)]="outlet.location.longitude" required type="number" class="input" id="longitude">
+        <span class="label">Longitude</span>
+      </label>
+    </div>
+  </div>
+</div>

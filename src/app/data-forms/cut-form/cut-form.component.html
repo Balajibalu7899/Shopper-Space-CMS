@@ -1,0 +1,32 @@
+<div class="split">
+  <h2 class="title">Cuts</h2>
+  <div style="flex: 1;"></div>
+  <button class="btn icon-btn" (click)="newCut()">+</button>
+</div>
+<div class="fit">
+  <div class="grid-1 grid-h">
+    <div class="card cut-card" *ngFor="let cut of cuts;let i = index"
+      [ngClass]="activeCutIndex == i ? 'active-card' : ''" (click)="edit(i)">
+      <div class="header">
+        <img class="img" [src]="cut.image" alt="" srcset="">
+      </div>
+      <div class="body">
+        <h2 class="title">{{cut.title}}</h2>
+        <h2 class="sub-title">{{cut.sub_title}}</h2>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="split">
+    <h2 class="title">Edit</h2>
+    <div style="flex: 1;"></div>
+  </div>
+  <label for="image" class="input-field">
+    <input id="image" type="file" class="input" accept="image/*" (change)="imageUpload($event.target)">
+  </label>
+  <label for="title" class="input-field">
+    <input required [(ngModel)]="cut.title" class="input" type="text" id="title" placeholder="Enter Title">
+    <span class="label">Sub Title</span>
+  </label>
+  <button class="btn align-right" (click)="save()">Save</button>
+</div>

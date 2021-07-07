@@ -1,0 +1,35 @@
+<div class="split">
+  <h2 class="title">Specials</h2>
+</div>
+<div class="fit">
+  <div class="grid-1 grid-h">
+    <div class="card special-card" *ngFor="let special of specials">
+      <div class="header">
+        <img class="img" [src]="special.image" alt="" srcset="">
+      </div>
+      <div class="body">
+        <h2 class="title">{{special.title}}</h2>
+        <h2 class="sub-title">{{special.sub_title}}</h2>
+        <h2 class="description">{{special.description}}</h2>
+        <p (click)="remove(special)" style="color: red;">Remove</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+<br>
+<div class="split">
+  <h2 class="title">Edit</h2>
+  <div style="flex: 1;"></div>
+</div>
+<div class="card special-card" *ngFor="let special of allSecials" (click)="add(special)">
+  <div class="header">
+    <img class="img" [src]="special.image" alt="" srcset="">
+  </div>
+  <div class="body">
+    <h2 class="title">{{special.title}}</h2>
+    <h2 class="sub-title">{{special.sub_title}}</h2>
+    <h2 class="description">{{special.description}}</h2>
+  </div>
+</div>
+<button class="btn align-right" (click)="save()">Save</button>

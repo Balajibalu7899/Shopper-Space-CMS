@@ -1,0 +1,32 @@
+<div class="flow-h">
+  <button class="btn" (click)="getOrders('Ordered')">Active</button>
+  <button class="btn" (click)="getOrders('Dispatched')">Dispatched</button>
+  <button class="btn" (click)="getOrders('Delivered')">Delivered</button>
+  <button class="btn" (click)="getOrders('Cancelled')">Cancelled</button>
+</div>
+
+<div class="grid-2 ">
+  <div class="card" *ngFor="let order of orders" (click)="viewOrder(order.id)">
+    <div class="body-h">
+      <div class="icon">
+        <img src="../../../../assets/icons/Order.svg" alt="">
+      </div>
+      <div class="body" style="flex: 1;">
+        <h4 class="title">{{order.status}}</h4>
+        <p class="description">{{order.ordered.time}}</p>
+      </div>
+      <div class="body">
+        <h4 class="title">₹{{order.total_price}}</h4>
+      </div>
+    </div>
+    <div class="body" style="border-bottom: dotted; color: var(--primary-txt); line-height:30px;">
+      <h4 class="title">items:{{order.items_count}}</h4>
+      <p class="description">Coupons: {{order.coupon_code}}</p>
+    </div>
+    <div class="body">
+      <h4 class="title">{{order.address.name}}</h4>
+      <p class="description">Phone: {{order.address.phone}}</p>
+      <p class="descrition">Address: {{order.address.address}}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="grid-2">
+  <div class="display-container">
+    <div class="card">
+      <img class="img" [src]="offer.image" alt="offer.title">
+      <div class="body">
+        <h4 class="title">Offer Amount: {{offer.amount}}% Off</h4>
+        <h4 class="title">{{offer.title}}</h4>
+        <p class="sub-title">{{offer.sub_title}}</p>
+        <p class="description">{{offer.description}}</p>
+      </div>
+    </div>
+    <br>
+    <div class="split">
+      <h2 class="title">Products</h2>
+      <div style="flex: 1;"></div>
+      <button *ngIf="action == Action.EDIT" class="btn" (click)="cangeType(EditType.PRODUCT)">Add</button>
+    </div>
+    <div class="grid-1">
+
+      <div class="item-card card" *ngFor="let product of products">
+        <img class="img" [src]="product.image" alt="">
+        <div class="body body-h">
+          <!-- <div style="flex: 1;">
+            <p class="title">{{product.title}}</p>
+            <p class="description">{{product.sub_title}}</p>
+            <p class="sub-title">{{product.tag}}</p>
+            <p class="title">Price: {{product.price}}</p>
+            <p class="title">Offer Price: {{product.offer_price}}</p>
+            <p class="title">Discount:
+              {{((product.price- product.offer_price)/product.price)*100 | number: '1.2-2'}}%</p>
+          </div> -->
+          <div>
+            <h2 (click)="removeProduct(product.product_id!)">Remove</h2>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="edit-container">
+    <app-product-selector *ngIf="editType == EditType.PRODUCT" [products]="products!" (update)="updateProducts($event)">
+    </app-product-selector>
+    <div *ngIf="editType == EditType.OFFER">
+
+      <label for="image" class="input-field">
+        <input id="image" type="file" class="input" accept="image/*" (change)="imageUpload($event.target)">
+      </label>
+      <label for="title" class="input-field">
+        <input [(ngModel)]="offer.title" required type="text" class="input" id="title" placeholder="Enter Title">
+        <span class="label">Title</span>
+      </label>
+      <label for="sub_title" class="input-field">
+        <input [(ngModel)]="offer.sub_title" required type="text" class="input" id="sub_title"
+          placeholder="Enter Sub Title">
+        <span class="label">Sub Title</span>
+      </label>
+      <label for="description" class="input-field">
+        <textarea [(ngModel)]="offer.description" required type="text" class="input area" id="description"
+          placeholder="Enter description"></textarea>
+        <span class="label">Description</span>
+      </label>
+      <label for="amount" class="input-field" *ngIf="action === Action.CREATE">
+        <input [(ngModel)]="offer.amount" required type="number" class="input" id="amount" placeholder="Enter Amount">
+        <span class="label">Amount</span>
+      </label>
+      <button class="btn align-right" *ngIf="action === Action.CREATE" (click)="create()">Create</button>
+      <div class="split">
+        <button *ngIf="action == Action.EDIT" class="btn" (click)="remove()">Remove</button>
+        <div style="flex: 1;"></div>
+        <button class="btn" *ngIf="action === Action.EDIT" (click)="update()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="flow-h">
+  <div style="flex: 1;">
+  </div>
+  <button class="btn btn-active" [routerLink]="['/category/new']" routerLinkActive="router-link-active">Add
+    Category</button>
+</div>
+
+<div class=" grid-4">
+  <div class="card category-card" *ngFor="let category of categories" (click)="edit(category.id!)">
+    <img [src]="category.image" alt="">
+    <p class="title type-title">{{category.name}}</p>
+  </div>
+</div>

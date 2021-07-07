@@ -1,0 +1,22 @@
+<div class="split">
+  <h2 class="title">Specials</h2>
+</div>
+<div class="grid-1 grid-h">
+  <div class="card cut-card" *ngFor="let category of categories">
+    <div class="body">
+      <h2 class="title">{{category.id}}</h2>
+      <br>
+      <p (click)="remove(category)">Remove</p>
+    </div>
+  </div>
+</div>
+<div class="split">
+  <h2 class="title">All Specials</h2>
+</div>
+<div class="grid-2">
+  <div class="card category-card" *ngFor="let category of allCategories" (click)="add(category)">
+    <img [src]="category.image" alt="category.title">
+    <p class="title type-title">{{category.name}}</p>
+  </div>
+</div>
+<button class="btn align-right" (click)="save()">Save</button>

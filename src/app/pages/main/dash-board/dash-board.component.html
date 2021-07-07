@@ -1,0 +1,36 @@
+<div class="grid-4">
+  <div class="card dash-card">
+    <p class="count">1000</p>
+    <p class="title">Orders</p>
+  </div>
+  <div class="card dash-card">
+    <p class="count">1000</p>
+    <p class="title">Dispatched</p>
+  </div>
+  <div class="card dash-card">
+    <p class="count">1000</p>
+    <p class="title">Delivered</p>
+  </div>
+  <div class="card dash-card">
+    <p class="count">1000</p>
+    <p class="title">Cancelled</p>
+  </div>
+</div>
+<div style="height: 20px;"></div>
+
+<div class="card dash-orders head">
+  <h3 class="title">Customer</h3>
+  <h3 class="title">Address</h3>
+  <h3 class="title">Time</h3>
+  <h3 class="title">Items</h3>
+  <h3 class="title">Amount</h3>
+</div>
+<div class="orders">
+  <div class="card dash-orders" *ngFor="let order of orders">
+    <h3 class="title">{{order.address.name}}</h3>
+    <h3 class="title">{{order.address.address}}</h3>
+    <h3 class="title">{{order.time}}</h3>
+    <h3 class="title">{{order.items_count}}</h3>
+    <h3 class="title">{{order.total_price}}</h3>
+  </div>
+</div>
