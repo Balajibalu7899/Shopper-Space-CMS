@@ -1,4 +1,5 @@
 
+
 name: SonarQube Scanning
 
 on:
@@ -18,3 +19,9 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo dotnet --versioin
+      - name: setup .net    
+        uses: actions/setup-dotnet@v1
+        with:
+              dotnet-version: '3.0.3'    
+      - name: dotnet --version
+        run: dotnet --version        
