@@ -24,3 +24,5 @@ jobs:
         
       - name: checking path
         run: pwd
+      - name: gittoken
+        run: echo ${{GITHUB_TOKEN}}
