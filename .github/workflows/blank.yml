@@ -1,5 +1,4 @@
 
-
 name: SonarQube Scanning
 
 on:
@@ -19,12 +18,9 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo dotnet --versioin
-#       - name: Install dependencies
-#         run: dotnet add package Newtonsoft.Json --version 12.0.1       
-        
-      - name: checking path
-        run: ls
-             
-             
-             
-        
+      - name: Setup .NET 5.0.405
+        uses: actions/setup-dotnet@v1
+        with:
+            dotnet-version: '5.0.405'
+      - name: check --version  
+        run: dotnet --version      
