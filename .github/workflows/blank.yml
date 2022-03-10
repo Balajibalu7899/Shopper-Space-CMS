@@ -25,8 +25,8 @@ jobs:
         
       - name: uninstall sdks
         run: sudo apt-get remove dotnet-host
-      - name: .net info after uninstalling sdks
-        run: dotnet --info  
+#       - name: .net info after uninstalling sdks
+#         run: dotnet --info  
         
       - name: setup dotNet
         uses: actions/setup-dotnet@v1
