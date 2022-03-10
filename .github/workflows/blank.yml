@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: uninstall sdks
+        run: apt-get remove dotnet-host
       - name: setup dotNet
         uses: actions/setup-dotnet@v1
         with:
@@ -22,7 +24,8 @@ jobs:
       - name: check SDKS  
         run: dotnet --list-sdks
       - name: check runtime  
-        run: dotnet --list-runtimes   
+        run: dotnet --list-runtimes
+        
 #       - name: Restore dependencies
 #         run: dotnet restore
 #       - name: Install dependencies
