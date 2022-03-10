@@ -17,12 +17,24 @@ jobs:
         run: dotnet --version
       - name: .net info
         run: dotnet --info
+      - name: dotnetpath runtime
+        run: ls  /usr/share/dotnet/shared/Microsoft.NETCore.App
+        
+      - name: dotnetpath sdk
+        run: ls /usr/share/dotnet/sdk  
+        
       - name: uninstall sdks
         run: sudo apt-get remove dotnet-host
+      - name: .net info after uninstalling sdks
+        run: dotnet --info  
+        
       - name: setup dotNet
         uses: actions/setup-dotnet@v1
         with:
             dotnet-version: '6.0.200'
+            
+      - name: .net info after actions/setup-dotnet 
+        run: dotnet --info       
       - name: check --version  
         run: dotnet --version  
       - name: check SDKS  
