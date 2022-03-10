@@ -13,8 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: dotnet --versions
+        run: dotnet --version
       - name: uninstall sdks
-        run: apt-get remove dotnet-host
+        run: sudo apt-get remove dotnet-host
       - name: setup dotNet
         uses: actions/setup-dotnet@v1
         with:
