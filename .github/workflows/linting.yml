@@ -22,5 +22,7 @@ jobs:
         run: npm --version
       - name: installing angular cli
         run: npm i -g @angular/cli
+      - name: installing linting tools
+        run: npm install @angular-devkit/build-angular:tslint
       - name: run linting against project
         run: ng lint ShopperSpaceCMS
