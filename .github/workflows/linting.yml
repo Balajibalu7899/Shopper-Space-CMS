@@ -1,0 +1,26 @@
+
+name: CI
+
+on:
+ workflow_dispatch:
+
+jobs:
+ 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: checking node js
+        run: node --version
+      - name: setup node js environment
+        uses: actions/setup-node@v3.0.0
+      - name: checking npm package manager
+        run: npm --version
+      - name: installing npm package manager
+        run: sudo apt install npm
+      - name: checking new verion of npm
+        run: npm --version
+      - name: installing angular cli
+        run: npm i -g @angular/cli
+      - name: run linting against project
+        run: ng lint ShopperSpaceCMS
