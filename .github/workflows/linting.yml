@@ -24,7 +24,8 @@ jobs:
         run: npm i -g @angular/cli
 #       - name: installing linting tools
 #         run: npm install @angular-devkit/build-angular:tslint
-      - run: npm ci
+      - name: npm ci
+        run: npm ci
       - name: run linting against project
-      - run: npm run lint
+        run: npm run lint
    
