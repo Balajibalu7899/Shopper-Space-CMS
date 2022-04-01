@@ -24,8 +24,14 @@ jobs:
         run: npm i -g @angular/cli
 #       - name: installing linting tools
 #         run: npm install @angular-devkit/build-angular:tslint
-      - name: npm ci
-        run: npm ci
-      - name: run linting against project
-        run: npm run lint
+#       - name: npm ci
+#         run: npm ci
+#       - name: run linting against project
+#         run: npm run lint
+      - name: linting with super linter
+      - name: Super-Linter
+        uses: github/super-linter@v4.9.1
+        with: 
+          DEFAULT_BRANCH: main
+        
    
