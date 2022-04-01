@@ -28,7 +28,7 @@ jobs:
 #         run: npm ci
 #       - name: run linting against project
 #         run: npm run lint
-      - name: linting with super linter
+   
       - name: Super-Linter
         uses: github/super-linter@v4.9.1
         with: 
