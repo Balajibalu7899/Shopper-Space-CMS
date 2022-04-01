@@ -31,7 +31,11 @@ jobs:
    
       - name: Super-Linter
         uses: github/super-linter@v4.9.1
-        with: 
+        env: 
           DEFAULT_BRANCH: main
+          OUTPUT_FORMAT: tap
+          OUTPUT_FOLDER: report
+      - name: checking report
+        run: ls ./report
         
    
